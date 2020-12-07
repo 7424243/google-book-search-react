@@ -16,7 +16,7 @@ class ResultItem extends Component {
                 <h2><a href={this.props.url} target='_blank' rel='noreferrer'>{this.props.title}</a></h2>
                 <p>Author: {this.props.author}</p>
                 <p>Price: {this.props.price}</p>
-                <p>{this.props.description}</p>
+                <img src={this.props.imageURL} alt='book cover'/>
             </li>
           </ul>
 
