@@ -33,7 +33,7 @@ class App extends Component {
 
   componentDidMount() {
     
-    const url = `https://www.googleapis.com/books/v1/volumes?q=surf&filter=full&printType=books&key=AIzaSyCT2hnLLjqh_M0NOWqffJYY_or9dzoMDvI`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=surf&download=epub&printType=books&key=AIzaSyCT2hnLLjqh_M0NOWqffJYY_or9dzoMDvI`;
     fetch(url)
         .then(response => {
             if(response.ok) {

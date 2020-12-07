@@ -6,7 +6,7 @@ class Results extends Component {
 
   render() {
 
-    const results = Object.keys(this.props.results.items).map((_, i) => <ResultItem 
+    const results = Object.keys(this.props.results).map((_, i) => <ResultItem 
     key={i}
     title={this.props.results.items[i].volumeInfo.title}
     author={this.props.results.items[i].volumeInfo.authors}

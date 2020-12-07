@@ -9,25 +9,32 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.setState = {
-      term: 'test',
-      bookType: ' ',
-      printType: ' '
+      term: 'search',
+      bookType: 'All',
+      printType: 'epub'
     };
+
+    this.termChanged = this.termChanged.bind(this);
+    this.printTypeChanged = this.printTypeChanged.bind(this);
+    this.bookTypeChanged = this.bookTypeChanged.bind(this);
   }
 
-  termChanged(term) {
-      this.setState({term})
+  termChanged(event) {
+      this.setState({term: event.target.value})
   }
 
-  printTypeChanged(printType) {
-      this.setState({printType})
+  printTypeChanged(event) {
+      this.setState({printType: event.target.value})
   }
 
-  bookTypeChanged(bookType) {
-      this.setState({bookType})
+  bookTypeChanged(event) {
+      this.setState({bookType: event.target.vale})
   }
 
-  
+  handleSubmit(event) {
+      console.log('I was clicked!');
+      event.preventDefault();
+  }
 
 
   render() {
@@ -39,15 +46,25 @@ class Search extends Component {
               <input 
               type='text' 
               name='search'
-              
-              onChange={e => this.termChanged(e.target.value)}></input>
+              value={this.state.term}
+              onChange={this.termChanged}></input>
               <label htmlFor='printType'>Print Type: </label>
-              <select name='printType' onChange={e => this.printTypeChanged(e.target.value)}>
-                <option >Select one...</option>
+              <select 
+              name='printType' 
+              value={this.state.printType}
+              onChange={this.printTypeChanged}>
+                <option value='all'>All</option>
+                <option value='books'>Books</option>
+                <option value='magazine'>Magazine</option>
               </select>
               <label htmlFor='bookType'>Book Type: </label>
-              <select name='bookType' onChange={e => this.bookTypeChanged(e.target.value)}>
-                <option >Select one...</option>
+              <select 
+              name='bookType' 
+              value={this.state.bookType}
+              onChange={this.bookTypeChanged}>
+                <option value='epub'>epub</option>
+                <option value=''>all</option>
+                
               </select>
               <button type='submit'>Search</button>
           </form>
