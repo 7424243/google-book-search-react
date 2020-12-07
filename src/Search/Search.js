@@ -6,14 +6,18 @@ class Search extends Component {
   render() {
     return (
       <div className='Search'>
-          <form>
-              <label>Search: </label>
-              <textarea></textarea>
+          <form className='searchForm'>
+              <label htmlFor='search'>Search: </label>
+              <input type='text' name='search'></input>
+              <label htmlFor='printType'>Print Type: </label>
+              <select name='printType'>
+                <option value='ALL'>Select one...</option>
+              </select>
+              <label htmlFor='bookType'>Book Type: </label>
+              <select name='bookType'>
+                <option value='no filter'>Select one...</option>
+              </select>
               <button type='submit'>Search</button>
-              <label>Print Type: </label>
-              <input></input>
-              <label>Book Type: </label>
-              <input></input>
           </form>
       </div>
     );

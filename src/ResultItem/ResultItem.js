@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
 
 
+
+
 class ResultItem extends Component {
 
   render() {
+
+    
+
     return (
       <div className="resultItem">
-          <h2>Title</h2>
-          <p>Author: </p>
-          <p>Price: </p>
-          <p>Description....</p>
+          <ul>
+            <li>
+                <h2><a href={this.props.url} target='_blank' rel='noreferrer'>{this.props.title}</a></h2>
+                <p>Author: {this.props.author}</p>
+                <p>Price: {this.props.price}</p>
+                <p>{this.props.description}</p>
+            </li>
+          </ul>
+
       </div>
     );
   }
