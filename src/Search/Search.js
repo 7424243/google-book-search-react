@@ -6,34 +6,32 @@ import React, {Component} from 'react';
 class Search extends Component {
 
 
-  constructor(props) {
-    super(props);
-    this.setState = {
-      term: 'search',
-      bookType: 'All',
-      printType: 'epub'
-    };
+    constructor(props) {
+        super(props);
+        this.setState = {
+        term: "test",
+        bookType: " ",
+        printType: " "
+        };
+    }
 
-    this.termChanged = this.termChanged.bind(this);
-    this.printTypeChanged = this.printTypeChanged.bind(this);
-    this.bookTypeChanged = this.bookTypeChanged.bind(this);
+  
+
+  termChanged(term) {
+      this.setState({term})
   }
 
-  termChanged(event) {
-      this.setState({term: event.target.value})
+  printTypeChanged(printType) {
+      this.setState({printType})
   }
 
-  printTypeChanged(event) {
-      this.setState({printType: event.target.value})
+  bookTypeChanged(bookType) {
+      this.setState({bookType})
   }
 
-  bookTypeChanged(event) {
-      this.setState({bookType: event.target.vale})
-  }
-
-  handleSubmit(event) {
+  handleSubmit(e) {
       console.log('I was clicked!');
-      event.preventDefault();
+      e.preventDefault();
   }
 
 
@@ -41,18 +39,18 @@ class Search extends Component {
       
     return (
       <div className='Search'>
-          <form className='searchForm'>
+          <form className='searchForm' onSubmit={e => this.handleSubmit(e)}>
               <label htmlFor='search'>Search: </label>
               <input 
               type='text' 
               name='search'
-              value={this.state.term}
-              onChange={this.termChanged}></input>
+              
+              onChange={e => this.termChanged(e.target.value)}/>
               <label htmlFor='printType'>Print Type: </label>
               <select 
               name='printType' 
-              value={this.state.printType}
-              onChange={this.printTypeChanged}>
+              
+              onChange={e => this.printTypeChanged(e.target.value)}>
                 <option value='all'>All</option>
                 <option value='books'>Books</option>
                 <option value='magazine'>Magazine</option>
@@ -60,8 +58,8 @@ class Search extends Component {
               <label htmlFor='bookType'>Book Type: </label>
               <select 
               name='bookType' 
-              value={this.state.bookType}
-              onChange={this.bookTypeChanged}>
+              
+              onChange={e => this.bookTypeChanged(e.target.value)}>
                 <option value='epub'>epub</option>
                 <option value=''>all</option>
                 
