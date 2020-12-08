@@ -52,6 +52,8 @@ class Search extends Component {
 
     render() {
         
+        
+
         return (
         <div className='Search'>
             <form className='searchForm' onSubmit={e => this.handleSubmit(e)}>
@@ -73,7 +75,7 @@ class Search extends Component {
 
                 <button type='submit'>Search</button>
             </form>
-            <Results results={this.state.results}/>
+            <Results results={this.state.results} error={this.state.error}/>
         </div>
     );
   }

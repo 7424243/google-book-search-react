@@ -6,7 +6,9 @@ class Results extends Component {
 
   render() {
 
-    const results = Object.keys(this.props.results.items).map((_, i) => <ResultItem 
+
+
+    const results = Object.keys(this.props.results).map((_, i) => <ResultItem 
     key={i}
     title={this.props.results.items[i].volumeInfo.title}
     author={this.props.results.items[i].volumeInfo.authors}
@@ -14,8 +16,11 @@ class Results extends Component {
     url={this.props.results.items[i].saleInfo.buyLink}
     imageURL={this.props.results.items[i].volumeInfo.imageLinks.thumbnail}/>);
 
+    const error = this.props.error ? <div>{this.props.error}</div> : ' ';
+
     return (
       <div className="Results">
+          {error}
           {results}
       </div>
     );
